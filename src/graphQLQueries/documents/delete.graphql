@@ -1,3 +1,0 @@
-mutation {
-  deleteDocument(id: "$documentId")
-}

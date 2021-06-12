@@ -1,3 +1,0 @@
-mutation {
-  deleteFolder(id: "$folderId")
-}

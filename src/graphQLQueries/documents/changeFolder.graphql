@@ -1,6 +1,0 @@
-mutation {
-  moveDocumentToFolder(
-    document_id: "$documentId",
-    folder_id: "$folderId"
-  )
-}
