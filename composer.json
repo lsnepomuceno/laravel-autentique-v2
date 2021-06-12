@@ -1,0 +1,53 @@
+{
+	"name": "lsnepomuceno/laravel-autentique-v2",
+	"description": "A package for easy integration between Laravel applications and Autentique's digital signature service.",
+	"license": "MIT",
+	"type": "library",
+	"homepage": "https://github.com/lsnepomuceno/laravel-autentique-v2",
+	"support": {
+		"issues": "https://github.com/lsnepomuceno/laravel-autentique-v2/issues",
+		"source": "https://github.com/lsnepomuceno/laravel-autentique-v2"
+	},
+	"keywords": [
+		"laravel",
+		"autentique",
+		"digital signature",
+		"sign documents",
+		"sign pdf"
+	],
+	"require": {
+		"php": "^7.4 || ^8.0",
+		"ext-curl": "*",
+		"ext-json": "*",
+		"guzzlehttp/guzzle": "^7.3",
+		"illuminate/support": "^8.0",
+		"illuminate/http": "^8.0"
+	},
+	"minimum-stability": "dev",
+	"require-dev": {
+		"nunomaduro/collision": "dev-stable",
+		"orchestra/testbench": "^6.18.0",
+		"phpunit/phpunit": "^8.5.8|^9.3.3"
+	},
+	"authors": [
+		{
+			"name": "Lucas Nepomuceno",
+			"email": "lsn.nepomuceno@gmail.com",
+			"homepage": "https://github.com/lsnepomuceno"
+		}
+	],
+	"autoload": {
+		"psr-4": {
+			"LSNepomuceno\\LaravelAutentiqueV2\\": "src"
+		}
+	},
+	"autoload-dev": {
+		"psr-4": {
+			"LSNepomuceno\\LaravelAutentiqueV2\\Tests\\": "tests"
+		}
+	},
+	"scripts": {
+		"test": "vendor/bin/phpunit",
+		"test-coverage": "vendor/bin/phpunit --coverage-html coverage"
+	}
+}
