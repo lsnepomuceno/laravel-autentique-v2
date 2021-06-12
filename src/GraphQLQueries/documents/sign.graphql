@@ -1,0 +1,3 @@
+mutation {
+  signDocument(id: "$documentId")
+}
