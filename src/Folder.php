@@ -29,7 +29,7 @@ class Folder
   public function __construct()
   {
     $this->autentique = new Autentique;
-    $this->makeQuery = new MakeQuery;
+    $this->makeQuery  = new MakeQuery(self::DIR);
   }
 
   /**
@@ -42,11 +42,7 @@ class Folder
    */
   public function create(string $folderName): Fluent
   {
-    $query = $this->makeQuery->setQueryFile(
-      'create',
-      self::DIR
-    )->makeQuery();
-
+    $query = $this->makeQuery->setQueryFile(__METHOD__)->makeQuery();
     $variables =  [
       'folder' => [
         'name' => $folderName
@@ -64,12 +60,9 @@ class Folder
    */
   public function delete(string $folderId): Fluent
   {
-    $query = $this->makeQuery->setQueryFile(
-      'delete',
-      self::DIR
-    )->makeQuery();
-
-    $query = str_replace(['$folderId'], [$folderId], $query);
+    $query = $this->makeQuery
+      ->setQueryFile(__METHOD__)
+      ->makeQuery(['$folderId'], [$folderId]);
 
     return $this->autentique->runJson($query);
   }
@@ -84,16 +77,12 @@ class Folder
    */
   public function documentsByFolder(string $folderId, int $perPage = 60, int $page = 1): Fluent
   {
-    $query = $this->makeQuery->setQueryFile(
-      'documentsByFolder',
-      self::DIR
-    )->makeQuery();
-
-    $query = str_replace(
-      ['$folderId', '$perPage', '$page'],
-      [$folderId, $perPage, $page],
-      $query
-    );
+    $query = $this->makeQuery
+      ->setQueryFile(__METHOD__)
+      ->makeQuery(
+        ['$folderId', '$perPage', '$page'],
+        [$folderId, $perPage, $page]
+      );
 
     return $this->autentique->runJson($query);
   }
@@ -106,12 +95,9 @@ class Folder
    */
   public function read(string $folderId): Fluent
   {
-    $query = $this->makeQuery->setQueryFile(
-      'read',
-      self::DIR
-    )->makeQuery();
-
-    $query = str_replace(['$folderId'], [$folderId], $query);
+    $query = $this->makeQuery
+      ->setQueryFile(__METHOD__)
+      ->makeQuery(['$folderId'], [$folderId]);
 
     return $this->autentique->runJson($query);
   }
@@ -123,10 +109,7 @@ class Folder
    */
   public function readAll(): Fluent
   {
-    $query = $this->makeQuery->setQueryFile(
-      'readAll',
-      self::DIR
-    )->makeQuery();
+    $query = $this->makeQuery->setQueryFile(__METHOD__)->makeQuery();
 
     return $this->autentique->runJson($query);
   }

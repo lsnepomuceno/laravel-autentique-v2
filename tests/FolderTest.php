@@ -2,7 +2,7 @@
 
 namespace LSNepomuceno\LaravelAutentiqueV2\Tests;
 
-use LSNepomuceno\LaravelAutentiqueV2\{Folder};
+use LSNepomuceno\LaravelAutentiqueV2\Folder;
 use Orchestra\Testbench\TestCase;
 use Illuminate\Support\Fluent;
 use LSNepomuceno\LaravelAutentiqueV2\Exception\AutentiqueResponseException;
