@@ -11,3 +11,4 @@ Vagrantfile
 composer.lock
 .phpunit.result.cache
 *.bak
+**/*.pdf

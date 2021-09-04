@@ -16,4 +16,4 @@ mutation CreateDocumentMutation($document: DocumentInput!, $signers: [SignerInpu
     }
   }
 },
-variables: $variables
+$variables
