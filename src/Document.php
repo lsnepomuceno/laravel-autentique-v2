@@ -60,20 +60,22 @@ class Document
    * create - Create a new document
    * @link https://docs.autentique.com.br/api/integracao/criando-um-documento
    *
-   * @param string $documentName
+   * @param string $fileName
    * @param string $documentPath
-   * @param bool $deleteLocalAfterProcess
+   * @param bool $deleteLocalFileAfterProcess
+   * @param Signers $signers
    *
    * @return \Illuminate\Support\Fluent
    */
-  public function create(string $documentName, string $documentPath, bool $deleteLocalAfterProcess = true): Fluent
+  public function create(string $fileName, string $documentPath, bool $deleteLocalFileAfterProcess = false, Signers $signers): Fluent
   {
     $query = $this->makeQuery->setQueryFile(__METHOD__)->makeQuery();
     $maps  = '{"file": ["variables.file"]}';
 
     return $this->autentique
       ->setPostType($this->autentique::FORM_TYPE)
-      ->setParams($query, $maps, $documentPath)
+      ->setParams($query, $maps, $documentPath, $fileName, $signers->getSigners())
+      ->setDeleteLocalFile($deleteLocalFileAfterProcess)
       ->performPost();
   }
 
