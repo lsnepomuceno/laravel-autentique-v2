@@ -1,7 +1,8 @@
 {
 	"name": "lsnepomuceno/laravel-autentique-v2",
-	"description": "A package for easy integration between Laravel applications and Autentique's digital signature service.",
+	"description": "Abandoned: migrate to lsnepomuceno/laravel-autentique. A package for easy integration between Laravel applications and Autentique's digital signature service.",
 	"license": "MIT",
+	"abandoned": "lsnepomuceno/laravel-autentique",
 	"type": "library",
 	"homepage": "https://github.com/lsnepomuceno/laravel-autentique-v2",
 	"support": {
